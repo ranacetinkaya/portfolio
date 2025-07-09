@@ -43,8 +43,8 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/ranacetinkaya', label: 'GitHub' },
-    { icon: FaLinkedin, href: '#', label: 'www.linkedin.com/in/rana-çetinkaya-071077270' },
-    { icon: FaInstagram, href: '#', label: 'https://www.instagram.com/rana.ckaya?igsh=N3N6NTQ5d3FqczFn' }
+    { icon: FaLinkedin, href: 'www.linkedin.com/in/rana-çetinkaya-071077270', label: 'Linkedn' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/rana.ckaya?igsh=N3N6NTQ5d3FqczFn', label: 'Instagram' }
   ];
 
   const handleInputChange = (e) => {

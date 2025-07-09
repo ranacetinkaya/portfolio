@@ -356,8 +356,8 @@ const About = () => {
                   }}
                   variants={itemVariants}
                 >
-                  "Code is poetry written in logic. Every line tells a story, 
-                  and every function solves a problem."
+                  "The biggest risk is not taking any risk... In a world that's 
+                  changing quickly, the only strategy that is guaranteed to fail is not taking risks."
                 </motion.p>
                 <motion.div
                   style={{
@@ -368,7 +368,7 @@ const About = () => {
                   }}
                   variants={itemVariants}
                 >
-                  - Rana Çetinkaya
+                  - Mark Zuckerberg
                 </motion.div>
               </motion.div>
             </motion.div>
