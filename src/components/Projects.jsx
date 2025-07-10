@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt, FaReact, FaPython, FaJs, FaDatabase } from 'react-icons/fa';
@@ -12,6 +12,16 @@ const Projects = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -172,7 +182,7 @@ const Projects = () => {
           <motion.div variants={itemVariants} className="text-center" style={{ marginBottom: '4rem' }}>
             <motion.h2
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontSize: windowWidth < 768 ? '2.5rem' : '4rem',
                 fontWeight: '800',
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 WebkitBackgroundClip: 'text',
@@ -224,8 +234,8 @@ const Projects = () => {
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                gap: 'clamp(0.5rem, 2vw, 1rem)',
-                padding: 'clamp(0.5rem, 2vw, 1rem)',
+                gap: windowWidth < 768 ? '0.5rem' : '1rem',
+                padding: windowWidth < 768 ? '0.5rem' : '1rem',
                 borderRadius: '2rem',
                 maxWidth: '800px',
                 margin: '0 auto'
@@ -236,7 +246,7 @@ const Projects = () => {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   style={{
-                    padding: 'clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem)',
+                    padding: windowWidth < 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
                     borderRadius: '1.5rem',
                     border: 'none',
                     background: selectedCategory === category.id 
@@ -244,12 +254,12 @@ const Projects = () => {
                       : 'transparent',
                     color: selectedCategory === category.id ? 'white' : '#4a5568',
                     fontWeight: '600',
-                    fontSize: 'clamp(0.8rem, 2.5vw, 0.95rem)',
+                    fontSize: windowWidth < 768 ? '0.8rem' : '0.95rem',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: 'clamp(0.25rem, 1vw, 0.5rem)',
+                    gap: windowWidth < 768 ? '0.25rem' : '0.5rem',
                     transition: 'all 0.3s ease',
                     backdropFilter: selectedCategory !== category.id ? 'blur(10px)' : 'none',
                     minHeight: '44px',
@@ -274,8 +284,8 @@ const Projects = () => {
               key={selectedCategory}
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
-                gap: 'clamp(1rem, 3vw, 2rem)',
+                gridTemplateColumns: windowWidth < 768 ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: windowWidth < 768 ? '1.5rem' : '2rem',
                 width: '100%',
                 transition: 'all 0.3s ease'
               }}
@@ -320,7 +330,7 @@ const Projects = () => {
                       <div style={{ 
                         position: 'relative', 
                         overflow: 'hidden', 
-                        height: 'clamp(180px, 25vw, 220px)',
+                        height: windowWidth < 768 ? '180px' : '220px',
                         width: '100%'
                       }}>
                         <motion.img
@@ -349,7 +359,8 @@ const Projects = () => {
                             borderRadius: '50px',
                             fontSize: '0.8rem',
                             fontWeight: '600',
-                            backdropFilter: 'blur(10px)'
+                            backdropFilter: 'blur(10px)',
+                            WebkitBackdropFilter: 'blur(10px)' // Safari fallback
                           }}
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
@@ -389,6 +400,7 @@ const Projects = () => {
                                   borderRadius: '50px',
                                   fontWeight: '600',
                                   backdropFilter: 'blur(10px)',
+                                  WebkitBackdropFilter: 'blur(10px)', // Safari fallback
                                   border: '1px solid rgba(255, 255, 255, 0.3)'
                                 }}
                                 whileHover={{ scale: 1.05 }}
@@ -406,6 +418,7 @@ const Projects = () => {
                                   borderRadius: '50px',
                                   fontWeight: '600',
                                   backdropFilter: 'blur(10px)',
+                                  WebkitBackdropFilter: 'blur(10px)', // Safari fallback
                                   border: '1px solid rgba(255, 255, 255, 0.3)'
                                 }}
                                 whileHover={{ scale: 1.05 }}
@@ -420,8 +433,8 @@ const Projects = () => {
 
                       {/* Project Content */}
                       <div style={{ 
-                        padding: 'clamp(1rem, 4vw, 2rem)',
-                        minHeight: 'clamp(200px, 30vw, 300px)',
+                        padding: windowWidth < 768 ? '1rem' : '2rem',
+                        minHeight: windowWidth < 768 ? '200px' : '300px',
                         display: 'flex',
                         flexDirection: 'column'
                       }}>
