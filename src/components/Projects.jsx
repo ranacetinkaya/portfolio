@@ -306,6 +306,15 @@ const Projects = () => {
                       }}
                       onHoverStart={() => setHoveredProject(project.id)}
                       onHoverEnd={() => setHoveredProject(null)}
+                      onTouchStart={() => setHoveredProject(project.id)}
+                      onClick={() => {
+                        // Toggle hover state for mobile
+                        if (hoveredProject === project.id) {
+                          setHoveredProject(null);
+                        } else {
+                          setHoveredProject(project.id);
+                        }
+                      }}
                     >
                       {/* Project Image */}
                       <div style={{ 
