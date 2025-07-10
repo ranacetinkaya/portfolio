@@ -306,99 +306,28 @@ const Skills = () => {
                   }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {/* Circular Progress */}
-                  <div style={{
-                    position: 'relative',
-                    width: '100px',
-                    height: '100px',
-                    margin: '0 auto 1.5rem auto'
-                  }}>
-                    <svg
-                      width="100"
-                      height="100"
-                      style={{ transform: 'rotate(-90deg)' }}
-                    >
-                      {/* Background Circle */}
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="40"
-                        stroke="rgba(0, 0, 0, 0.1)"
-                        strokeWidth="8"
-                        fill="transparent"
-                      />
-                      {/* Progress Circle */}
-                      <motion.circle
-                        cx="50"
-                        cy="50"
-                        r="40"
-                        stroke="url(#gradient)"
-                        strokeWidth="8"
-                        fill="transparent"
-                        strokeLinecap="round"
-                        initial={{ pathLength: 0 }}
-                        animate={inView ? { pathLength: skill.levelNum / 100 } : { pathLength: 0 }}
-                        transition={{ duration: 2, delay: 1.2 + index * 0.1 }}
-                        style={{
-                          pathLength: skill.levelNum / 100
-                        }}
-                      />
-                      <defs>
-                        <linearGradient id="gradient">
-                          <stop offset="0%" stopColor="#667eea" />
-                          <stop offset="100%" stopColor="#764ba2" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                    
-                    {/* Icon in Center */}
-                    <motion.div
-                      style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        fontSize: '2rem'
-                      }}
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                    >
-                      {skill.icon}
-                    </motion.div>
-                  </div>
+                  {/* Icon */}
+                  <motion.div
+                    style={{
+                      fontSize: '3rem',
+                      marginBottom: '1.5rem'
+                    }}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  >
+                    {skill.icon}
+                  </motion.div>
 
                   <motion.h4
                     style={{
                       fontSize: '1.2rem',
                       fontWeight: '600',
-                      color: '#1a202c',
-                      marginBottom: '0.5rem'
+                      color: '#1a202c'
                     }}
                     variants={itemVariants}
                   >
                     {skill.name}
                   </motion.h4>
-
-                  <motion.div
-                    style={{
-                      fontSize: '1.5rem',
-                      fontWeight: '800',
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                    initial={{ scale: 0 }}
-                    animate={inView ? { scale: 1 } : { scale: 0 }}
-                    transition={{ 
-                      type: "spring",
-                      damping: 15,
-                      stiffness: 200,
-                      delay: 1.5 + index * 0.1
-                    }}
-                  >
-                    {skill.level}
-                  </motion.div>
                 </motion.div>
               ))}
             </div>
