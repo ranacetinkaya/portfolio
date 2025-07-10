@@ -201,8 +201,16 @@ const About = () => {
                 </motion.p>
 
                 {/* CTA Button */}
-                <motion.a
-                  href="#contact"
+                <motion.button
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      element.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }}
                   className="btn btn-primary"
                   style={{
                     display: 'inline-flex',
@@ -216,7 +224,9 @@ const About = () => {
                     fontWeight: '600',
                     boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    border: 'none',
+                    cursor: 'pointer'
                   }}
                   whileHover={{ 
                     scale: 1.05,
@@ -232,7 +242,7 @@ const About = () => {
                   >
                     →
                   </motion.span>
-                </motion.a>
+                </motion.button>
               </motion.div>
             </motion.div>
 

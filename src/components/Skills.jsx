@@ -372,8 +372,16 @@ const Skills = () => {
                 Let's combine these skills to build something amazing together. 
                 I'm always excited to take on new challenges and learn new technologies.
               </motion.p>
-              <motion.a
-                href="#contact"
+              <motion.button
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
                 className="btn btn-primary"
                 style={{
                   padding: '1rem 2.5rem',
@@ -386,7 +394,9 @@ const Skills = () => {
                   boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem'
+                  gap: '0.5rem',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
                 whileHover={{ 
                   scale: 1.05,
@@ -402,7 +412,7 @@ const Skills = () => {
                 >
                   🚀
                 </motion.span>
-              </motion.a>
+              </motion.button>
             </motion.div>
           </motion.div>
         </motion.div>

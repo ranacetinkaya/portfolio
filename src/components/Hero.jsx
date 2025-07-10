@@ -277,8 +277,16 @@ const Hero = () => {
               marginBottom: '3rem',
             }}
           >
-            <motion.a
-              href="#projects"
+            <motion.button
+              onClick={() => {
+                const element = document.getElementById('projects');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
               className="btn btn-primary"
               style={{
                 padding: '1rem 2.5rem',
@@ -292,6 +300,7 @@ const Hero = () => {
                 textDecoration: 'none',
                 position: 'relative',
                 overflow: 'hidden',
+                cursor: 'pointer'
               }}
               whileHover={{ 
                 scale: 1.05,
@@ -321,10 +330,18 @@ const Hero = () => {
                   ease: "linear"
                 }}
               />
-            </motion.a>
+            </motion.button>
 
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
               className="btn btn-secondary"
               style={{
                 padding: '1rem 2.5rem',
@@ -335,6 +352,7 @@ const Hero = () => {
                 borderRadius: '50px',
                 color: 'white',
                 textDecoration: 'none',
+                cursor: 'pointer'
               }}
               whileHover={{ 
                 scale: 1.05,
@@ -345,7 +363,7 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               Get In Touch
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           {/* Tech Stack Icons */}
