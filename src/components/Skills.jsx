@@ -53,51 +53,51 @@ const Skills = () => {
       title: "Programming Languages",
       icon: "💻",
       skills: [
-        { name: "Java", level: 85, color: "#ED8B00" },
-        { name: "HTML", level: 90, color: "#E34F26" },
-        { name: "JavaScript", level: 85, color: "#F7DF1E" },
-        { name: "Python", level: 80, color: "#3776AB" }
+        { name: "Java", level: "Intermediate", color: "#4A90E2" },
+        { name: "HTML", level: "Advanced", color: "#27AE60" },
+        { name: "JavaScript", level: "Intermediate", color: "#5DADE2" },
+        { name: "Python", level: "Intermediate", color: "#3498DB" }
       ]
     },
     {
       title: "Web Technologies", 
       icon: "🌐",
       skills: [
-        { name: "CSS", level: 88, color: "#1572B6" },
-        { name: "React.js", level: 85, color: "#61DAFB" },
-        { name: "SQL", level: 80, color: "#4479A1" },
-        { name: "PHP", level: 75, color: "#777BB4" }
+        { name: "CSS", level: "Intermediate", color: "#4A90E2" },
+        { name: "React.js", level: "Intermediate", color: "#5DADE2" },
+        { name: "SQL", level: "Intermediate", color: "#3498DB" },
+        { name: "PHP", level: "Beginner", color: "#F39C12" }
       ]
     },
     {
       title: "Tools & Technologies",
       icon: "🛠️",
       skills: [
-        { name: "Git", level: 85, color: "#F05032" },
-        { name: "Docker", level: 75, color: "#2496ED" },
-        { name: "AWS", level: 80, color: "#FF9900" },
-        { name: "MS Excel", level: 85, color: "#217346" }
+        { name: "Git", level: "Intermediate", color: "#4A90E2" },
+        { name: "Docker", level: "Beginner", color: "#E67E22" },
+        { name: "AWS", level: "Intermediate", color: "#5DADE2" },
+        { name: "MS Excel", level: "Intermediate", color: "#3498DB" }
       ]
     },
     {
       title: "AI & Data Science",
       icon: "🤖",
       skills: [
-        { name: "AI & Machine Learning", level: 80, color: "#FF6B35" },
-        { name: "Deep Learning (PyTorch, TensorFlow)", level: 78, color: "#4ECDC4" },
-        { name: "MS Excel", level: 85, color: "#217346" },
-        { name: "Data Analysis", level: 82, color: "#45B7D1" }
+        { name: "AI & Machine Learning", level: "Intermediate", color: "#4A90E2" },
+        { name: "Deep Learning (PyTorch, TensorFlow)", level: "Beginner", color: "#F39C12" },
+        { name: "Natural Language Processing", level: "Intermediate", color: "#5DADE2" },
+        { name: "Data Analysis", level: "Intermediate", color: "#3498DB" }
       ]
     }
   ];
 
   const softSkills = [
-    { name: "Problem Solving", level: 95, icon: "🧩" },
-    { name: "Team Collaboration", level: 90, icon: "🤝" },
-    { name: "Communication", level: 88, icon: "💬" },
-    { name: "Adaptability", level: 92, icon: "🔄" },
-    { name: "Leadership", level: 85, icon: "👑" },
-    { name: "Time Management", level: 87, icon: "⏰" }
+    { name: "Problem Solving", level: "Advanced", levelNum: 95, icon: "🧩" },
+    { name: "Team Collaboration", level: "Advanced", levelNum: 90, icon: "🤝" },
+    { name: "Communication", level: "Intermediate", levelNum: 88, icon: "💬" },
+    { name: "Adaptability", level: "Advanced", levelNum: 92, icon: "🔄" },
+    { name: "Leadership", level: "Intermediate", levelNum: 85, icon: "👑" },
+    { name: "Time Management", level: "Intermediate", levelNum: 87, icon: "⏰" }
   ];
 
   return (
@@ -258,7 +258,7 @@ const Skills = () => {
                           color: skill.color,
                           fontSize: '0.9rem'
                         }}>
-                          {skill.level}%
+                          {skill.level}
                         </span>
                       </motion.div>
                     ))}
@@ -337,10 +337,10 @@ const Skills = () => {
                         fill="transparent"
                         strokeLinecap="round"
                         initial={{ pathLength: 0 }}
-                        animate={inView ? { pathLength: skill.level / 100 } : { pathLength: 0 }}
+                        animate={inView ? { pathLength: skill.levelNum / 100 } : { pathLength: 0 }}
                         transition={{ duration: 2, delay: 1.2 + index * 0.1 }}
                         style={{
-                          pathLength: skill.level / 100
+                          pathLength: skill.levelNum / 100
                         }}
                       />
                       <defs>
@@ -397,7 +397,7 @@ const Skills = () => {
                       delay: 1.5 + index * 0.1
                     }}
                   >
-                    {skill.level}%
+                    {skill.level}
                   </motion.div>
                 </motion.div>
               ))}

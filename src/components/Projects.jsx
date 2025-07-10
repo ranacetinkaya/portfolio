@@ -86,13 +86,13 @@ const Projects = () => {
     {
       id: 3,
       title: "Turkish Language Processing System (FNSS)",
-      description: "Advanced Turkish language processing desktop application developed in collaboration with FNSS. This standalone executable (.exe) features integrated text-to-speech (TTS) and speech-to-text (STT) functionalities, specifically optimized for Turkish language processing with fine-tuned models. Note: This is a downloadable desktop application, no live demo available.",
+      description: "This project creates an offline Turkish Speech-to-Text and Text-to-Speech system, fine-tuned for Turkish dialects and noise conditions. It delivers high accuracy and natural voice output, optimized for integration with FNSS services. Note: This is a downloadable desktop application(GUI), no live demo available.",
       image: "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=500&h=300&fit=crop",
       category: "ai",
-      technologies: ["Python", "Turkish NLP", "TTS/STT", "Machine Learning", "Fine-tuned Models"],
+      technologies: ["Python","ElevenLabs", "PyQt6 (GUI development)" ,"OpenAI Whisper", "TTS/STT", "Machine Learning", "Fine-tuned Models"],
       liveUrl: "https://acusense-ejly.vercel.app/",
       githubUrl: "https://github.com/tcgumus/tddsis",
-      features: ["Desktop Application", "Turkish Language Optimization", "Text-to-Speech", "Speech-to-Text", "FNSS Integration", "Fine-tuned Models"],
+      features: ["Desktop Application", "Turkish NLP", "Text-to-Speech", "Speech-to-Text", "FNSS Integration", "Fine-tuned Models"],
       status: "In Progress"
     },
     {
@@ -101,9 +101,9 @@ const Projects = () => {
       description: "A comprehensive employee management system with advanced DataTable functionality. Features include employee data management, search and filter capabilities, and database integration for efficient HR operations.",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&h=300&fit=crop",
       category: "web",
-      technologies: ["PHP", "MySQL", "DataTables", "JavaScript", "HTML5", "CSS3"],
-      liveUrl: "#",
-      githubUrl: "#",
+      technologies: ["PHP", "MySQL", "DataTables", "JavaScript", "HTML", "CSS"],
+      liveUrl: "https://rana-companydb.ct.ws/",
+      githubUrl: "https://github.com/ranacetinkaya/Company_Database",
       features: ["Employee Management", "Advanced Search", "Database Integration", "Data Export", "Responsive Tables"],
       status: "Completed"
     },

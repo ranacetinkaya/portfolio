@@ -260,8 +260,8 @@ const Hero = () => {
               }}
               whileHover={{ scale: 1.02 }}
             >
-              A Computer Engineering student passionate about web development, artificial intelligence, and creating innovative solutions. 
-              Currently working on Turkish language processing systems and modern web applications.
+              Fresh graduate passionate about LLM, artificial intelligence, and developing cutting-edge web applications. 
+              Specialized in machine learning, deep learning, and creating innovative AI-powered solutions.
             </motion.p>
           </motion.div>
 
@@ -359,7 +359,7 @@ const Hero = () => {
               flexWrap: 'wrap',
             }}
           >
-            {['React.js', 'Python', 'JavaScript', 'Node.js', 'AI/ML', 'TypeScript'].map((tech, index) => (
+            {['Python', 'Java', 'JavaScript', 'C', 'React', 'AWS', 'Deep Learning', 'AI/ML', 'HTML/CSS'].map((tech, index) => (
               <motion.div
                 key={tech}
                 className="tech-item"

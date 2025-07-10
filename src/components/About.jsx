@@ -169,8 +169,8 @@ const About = () => {
                   }}
                   variants={itemVariants}
                 >
-                  A passionate <strong>Computer Engineering graduate</strong> specializing in modern web technologies 
-                  and artificial intelligence. I love creating innovative solutions that bridge technology and user experience.
+                 As a recent <strong>Computer Engineering graduate</strong>, I am enthusiastic about beginning my career in <strong>Artificial Intelligence</strong> and <strong>Large Language Models</strong>. I'm dedicated to developing cutting-edge AI solutions and contributing to the next generation 
+                  of intelligent systems that transform how we interact with technology.
                 </motion.p>
 
                 <motion.p
@@ -182,9 +182,9 @@ const About = () => {
                   }}
                   variants={itemVariants}
                 >
-                  My journey in software development focuses on <strong>React.js</strong>, <strong>Python</strong>, and 
-                  <strong> Machine Learning</strong>. I'm committed to writing clean, efficient code and building 
-                  scalable applications that make a real impact.
+                  My expertise spans <strong>Python</strong>, <strong>Machine Learning</strong>, and <strong>Deep Learning </strong>  
+                  frameworks, with a strong foundation in <strong>Natural Language Processing</strong> and <strong>LLM development</strong>. 
+                  I'm eager to apply my technical skills in building intelligent applications that push the boundaries of AI innovation.
                 </motion.p>
 
                 <motion.p
@@ -196,8 +196,8 @@ const About = () => {
                   }}
                   variants={itemVariants}
                 >
-                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-                  or learning about the latest trends in web development and AI.
+                  As I embark on my professional journey, I'm actively seeking opportunities to work with AI research teams, 
+                  contribute to LLM projects, and collaborate on innovative machine learning solutions that address real-world challenges.
                 </motion.p>
 
                 {/* CTA Button */}
