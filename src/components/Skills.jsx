@@ -374,12 +374,26 @@ const Skills = () => {
               </motion.p>
               <motion.button
                 onClick={() => {
+                  // Safari-compatible scroll method
                   const element = document.getElementById('contact');
                   if (element) {
-                    element.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
+                    const rect = element.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetPosition = rect.top + scrollTop - 100; // 100px offset for header
+                    
+                    // Safari detection and compatibility
+                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                    
+                    if (isSafari) {
+                      // Safari - use direct scrolling without smooth behavior
+                      window.scrollTo(0, targetPosition);
+                    } else {
+                      // Modern browsers with smooth scroll
+                      window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
                   }
                 }}
                 className="btn btn-primary"
