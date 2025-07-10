@@ -6,8 +6,9 @@ import { SiMongodb, SiTailwindcss, SiExpress } from 'react-icons/si';
 
 const Projects = () => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
+    threshold: 0.1, // Safari compatibility - lower threshold
+    triggerOnce: true,
+    rootMargin: '50px 0px' // Safari fallback
   });
 
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -156,7 +157,8 @@ const Projects = () => {
             height: '300px',
             background: 'radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%)',
             borderRadius: '50%',
-            filter: 'blur(60px)'
+            filter: 'blur(60px)',
+            WebkitFilter: 'blur(60px)' // Safari fallback
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -232,8 +234,9 @@ const Projects = () => {
             <div 
               className="glass"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
                 gap: windowWidth < 768 ? '0.5rem' : '1rem',
                 padding: windowWidth < 768 ? '0.5rem' : '1rem',
                 borderRadius: '2rem',
@@ -262,8 +265,11 @@ const Projects = () => {
                     gap: windowWidth < 768 ? '0.25rem' : '0.5rem',
                     transition: 'all 0.3s ease',
                     backdropFilter: selectedCategory !== category.id ? 'blur(10px)' : 'none',
+                    WebkitBackdropFilter: selectedCategory !== category.id ? 'blur(10px)' : 'none',
                     minHeight: '44px',
-                    textAlign: 'center'
+                    minWidth: windowWidth < 768 ? '120px' : '150px',
+                    textAlign: 'center',
+                    flex: windowWidth < 768 ? '1' : '0 0 auto'
                   }}
                   whileHover={{ 
                     scale: 1.02,
@@ -283,8 +289,10 @@ const Projects = () => {
             <motion.div
               key={selectedCategory}
               style={{
-                display: 'grid',
-                gridTemplateColumns: windowWidth < 768 ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
+                display: 'flex',
+                flexDirection: windowWidth < 768 ? 'column' : 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
                 gap: windowWidth < 768 ? '1.5rem' : '2rem',
                 width: '100%',
                 transition: 'all 0.3s ease'
@@ -303,7 +311,10 @@ const Projects = () => {
                         borderRadius: '1.5rem',
                         overflow: 'hidden',
                         position: 'relative',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        flex: windowWidth < 768 ? '1 1 100%' : '1 1 calc(50% - 1rem)',
+                        maxWidth: windowWidth < 768 ? '100%' : '500px',
+                        minWidth: windowWidth < 768 ? '100%' : '350px'
                       }}
                       variants={projectVariants}
                       initial="hidden"
@@ -512,8 +523,8 @@ const Projects = () => {
                             listStyle: 'none', 
                             padding: 0, 
                             margin: 0,
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+                            display: 'flex',
+                            flexDirection: 'column',
                             gap: '0.25rem'
                           }}>
                             {project.features.map((feature, featureIndex) => (
@@ -596,8 +607,30 @@ const Projects = () => {
                 I'm always excited to work on new and challenging projects. 
                 Let's bring your ideas to life with cutting-edge technology.
               </motion.p>
-              <motion.a
-                href="#contact"
+              <motion.button
+                onClick={() => {
+                  // Safari-compatible scroll method
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    const rect = element.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetPosition = rect.top + scrollTop - 100; // 100px offset for header
+                    
+                    // Safari detection and compatibility
+                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                    
+                    if (isSafari) {
+                      // Safari - use direct scrolling without smooth behavior
+                      window.scrollTo(0, targetPosition);
+                    } else {
+                      // Modern browsers with smooth scroll
+                      window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }
+                }}
                 className="btn btn-primary"
                 style={{
                   padding: '1rem 2.5rem',
@@ -610,7 +643,9 @@ const Projects = () => {
                   boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem'
+                  gap: '0.5rem',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
                 whileHover={{ 
                   scale: 1.05,
@@ -626,7 +661,7 @@ const Projects = () => {
                 >
                   💼
                 </motion.span>
-              </motion.a>
+              </motion.button>
             </motion.div>
           </motion.div>
         </motion.div>
